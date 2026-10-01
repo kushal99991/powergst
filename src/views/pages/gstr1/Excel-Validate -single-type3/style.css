@@ -1,0 +1,75 @@
+/*
+  A stylesheet customizing app (custom renderers)
+*/
+
+table.htCore td.star {
+    color: #fcb515;
+  }
+  
+  table.htCore tr.odd td {
+    background: #fafbff;
+  }
+  
+  table.htCore td .progressBar {
+    background: #37bc6c;
+    height: 10px;
+  }
+  
+  table.htCore tr.selected td {
+    background: #edf3fd;
+  }
+
+  .custom-cell {
+    border: #fcb515;
+    border-color: red;
+    /* color: red;
+    background-color: rgb(155, 41, 60); */
+  }
+  
+  .custom-table thead th,
+  .custom-table tbody tr th {
+    background-color: #e5f5eb;
+  }
+
+  /*
+    A stylesheet customizing Handsontable style
+  */
+  
+  .collapsibleIndicator {
+    text-align: center;
+  }
+
+  .handsontable thead {
+ 
+    background-color: #d4c4ff;
+  
+  }
+  
+  .handsontable .htRight .changeType {
+    margin: 3px 1px 0 13px;
+  }
+  .handsontable .green {
+    background: #37bc6c;
+    font-weight: bold;
+  }
+  .hot-table{
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+  
+  .handsontable .orange {
+    background: #fcb515;
+    font-weight: bold;
+  }
+  
+  /* .btn {
+    padding: 20px;
+    font: 1.4em sans-serif;
+  }
+  [data-color="green"] {
+    background: #37bc6c;
+  }
+  [data-color="orange"] {
+    background: #fcb515;
+  } */
+  

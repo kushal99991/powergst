@@ -1,0 +1,48 @@
+// ** Reactstrap Imports
+import {
+     Nav, NavItem, NavLink,
+} from 'reactstrap'
+import React, { useState } from 'react';
+// ** Icons Imports
+import { useEffect } from 'react';
+import { useRef } from 'react';
+
+
+const Tabs = ({ activeTab, toggleTab, btnType }) => {
+    const ref = useRef(null)
+
+    useEffect(() => {
+        if (btnType == 5 || btnType == 6) {
+            toggleTab('2')
+        } else {
+            toggleTab('1')
+        }
+    }, [])
+
+    return (
+        <div className='content-header row'>
+            <div className='content-header-left col-md-9 col-12'>
+                <div className='row breadcrumbs-top'>
+                    <div className='col-12'>
+
+                        <Nav pills className='nav-pill-danger mb-2'>
+                            <NavItem>
+                                <NavLink active={activeTab === '1'} onClick={() => toggleTab('1')} >
+                                    <span className='fw-bold'>Purchase Invoice</span>
+                                </NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink active={activeTab === '2'} onClick={() => toggleTab('2')}  >
+                                    <span className='fw-bold'>Vendor Credit/Debit Notes</span>
+                                </NavLink>
+                            </NavItem>
+                        </Nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    )
+}
+
+export default Tabs
