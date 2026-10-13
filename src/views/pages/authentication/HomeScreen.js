@@ -146,14 +146,13 @@ const homeScreenDashboard = () => {
       <div className="footer mt-4 bg-black py-2 px-5">
         <Row>
           <Col className="mx-auto text-white" lg="4">
-            +91 63540 11142 | +91 97731 38204 | +91 983 983 0986
+            +91 00000 00000 | +91 00000 00000
           </Col>
           <Col className="mx-auto text-white" lg="4">
             support@example.com | sales@example.com
           </Col>
           <Col className="mx-auto text-white" lg="4">
-            909-910, Zion Z-1, Nr. Avalon Hotel, Sindhu Bhavan Marg, Bodakdev,
-            Ahmedabad, Gujarat-380054
+            101, Tech Park, Sector 5, Demo City, India-400001
           </Col>
         </Row>
       </div>
