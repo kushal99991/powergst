@@ -5,7 +5,7 @@ const Footer = () => {
       <span className='float-md-start d-block d-md-inline-block mt-25'>
         COPYRIGHT © {new Date().getFullYear()}{' '}
         <a href='https://example.com/' target='_blank' rel='noopener noreferrer'>
-                Microvista Technologies Pvt. Ltd
+                Generic Tech Corp Pvt. Ltd
               </a>
         <span className='d-none d-sm-inline-block'>, All rights Reserved</span>
       </span>

@@ -149,7 +149,7 @@ const homeScreenDashboard = () => {
             +91 63540 11142 | +91 97731 38204 | +91 983 983 0986
           </Col>
           <Col className="mx-auto text-white" lg="4">
-            support@microvistatech.com | sales@microvistatech.com
+            support@example.com | sales@example.com
           </Col>
           <Col className="mx-auto text-white" lg="4">
             909-910, Zion Z-1, Nr. Avalon Hotel, Sindhu Bhavan Marg, Bodakdev,

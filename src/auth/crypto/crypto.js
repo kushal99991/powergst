@@ -1,19 +1,19 @@
 import CryptoJS from "crypto-js";
 
-const secretPass = "bXZwbEAyMDIyJHBvd2VyZ3N0" // mvpl@2022$GenericGST
+const appCipherKey = "demoappgenericgstkey2024" // 24-byte generic client cipher key
 
 // encrypt Data
 const encryptData = (value) => {
     const data = CryptoJS.AES.encrypt(
         JSON.stringify(value),
-        secretPass
+        appCipherKey
     ).toString();
     return data;
 };
 
 // decrypt Data
 const decryptData = (value) => {
-    const data = CryptoJS.AES.decrypt(value, secretPass);
+    const data = CryptoJS.AES.decrypt(value, appCipherKey);
     const new1 = data?.toString(CryptoJS.enc.Utf8);
     // console.log("new1=", new1)
     var decryptedData = new1 ? JSON.parse(new1) : null;
@@ -28,7 +28,7 @@ const getLocalValue = (fieldName) => {
 
 
 function encrypt(text) { // hh:mm:ss
-    var key = CryptoJS.enc.Utf8.parse(secretPass);
+    var key = CryptoJS.enc.Utf8.parse(appCipherKey);
     var iv = CryptoJS.enc.Base64.parse('QUJDREVGR0g=');
     var encoded = CryptoJS.enc.Utf8.parse(text);
     var ciphertext = CryptoJS.TripleDES.encrypt(encoded, key, { mode: CryptoJS.mode.CBC, iv: iv });
@@ -37,7 +37,7 @@ function encrypt(text) { // hh:mm:ss
 
 
 function decrypt(encryptedText) {
-    var key = CryptoJS.enc.Utf8.parse(secretPass);
+    var key = CryptoJS.enc.Utf8.parse(appCipherKey);
     var iv = CryptoJS.enc.Base64.parse('QUJDREVGR0g=');
     var bytes = CryptoJS.TripleDES.decrypt(encryptedText, key, { mode: CryptoJS.mode.CBC, iv: iv });
     var decryptedText = bytes.toString(CryptoJS.enc.Utf8);

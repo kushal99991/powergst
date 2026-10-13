@@ -105,7 +105,7 @@ const privacypolicy = () => {
               <CardText className='mb-2 pb-1'>
               You may choose to restrict the collection or use of your personal information in the following ways:
 Whenever you are asked to fill in a form on the website, look for the box that you can click to indicate that you do not want the information to be used by anybody for direct marketing purposes
-if you have previously agreed to us using your personal information for direct marketing purposes, you may change your mind at any time by writing to or emailing us at support@microvistatech.com
+if you have previously agreed to us using your personal information for direct marketing purposes, you may change your mind at any time by writing to or emailing us at support@example.com
 We will not sell, distribute or lease your personal information to third parties unless we have your permission or are required by law to do so. We may use your personal information to send you promotional information about third parties which we think you may find interesting if you tell us that you wish this to happen.
 You may request details of personal information which we hold about you under the Data Protection Act 1998. A small fee will be payable. If you would like a copy of the information held on you please write to Generic Tech Corp, 403, Ashirwad Complex, Nr. Mithakhali six roads, Mithakhali, Navrangpura, Ahmedabad-380006, INDIA.
 If you believe that any information we are holding on you is incorrect or incomplete, please write to or email us as soon as possible, at the above address. We will promptly correct any information found to be incorrect.              
@@ -121,7 +121,7 @@ If you believe that any information we are holding on you is incorrect or incomp
 
               If there are any questions regarding this privacy policy you may contact us using the information below:<br></br><br></br>
 
-              Microvista Technologies Pvt Ltd.<br></br>
+              Generic Tech Corp Pvt Ltd.<br></br>
 11, 4th Floor,Ashirwad Complex,<br></br>
 Sardar Patel Seva Samaj,<br></br>
 Nr. Mithakhali six roads, Navrangpura,<br></br>
@@ -131,7 +131,7 @@ Tel: +91 983 983 0986<br></br>
 (10 AM to 6 PM IST)<br></br>
 
 Email Us:<br></br>
-support@microvistatech.com<br></br>
+support@example.com<br></br>
                          </CardText>
 
                                    
