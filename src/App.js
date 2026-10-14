@@ -2,6 +2,8 @@ import React, {
   Suspense,
   createContext,
   useEffect,
+  useMemo,
+  useState
 } from "react";
 
 
@@ -13,23 +15,19 @@ import { keysMap } from "./configs/config";
 // ** Store & Actions
 import { useDispatch, useSelector } from "react-redux";
 import { handleLogout } from "@store/authentication";
-import { useNavigate,useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import withReactContent from "sweetalert2-react-content";
-import { gapi } from "gapi-script";
 import { globleVariable } from './configs/globalVariable';
 import LocalFunction from './configs/getLocalFunction'
 const MySwal = withReactContent(Swal);
-import { googleLogout } from '@react-oauth/google';
-import { useState } from "react";
-import { MsalProvider ,useMsal } from '@azure/msal-react';
+import { googleLogout, GoogleOAuthProvider } from '@react-oauth/google';
+import { MsalProvider } from '@azure/msal-react';
 import { PublicClientApplication } from "@azure/msal-browser";
-// import {  MICROSOFT_CLIENT_ID , MICROSOFT_REDIRECT_URL }  from '@configs/config'
 import  menuOpenPermission  from '@helper/menuOpenPermission'
 import { urlEndpointConfig } from '@configs/urlEndpoint'
 import  caching  from '@helper/versionCache'
 import SessionTimeoutChecker from "./SessionChecker";
 import  loginService  from './services/loginService'
-import {GoogleOAuthProvider} from '@react-oauth/google';
 
 const App = () => {
   // ** Store
@@ -38,24 +36,21 @@ const App = () => {
   const navigate = useNavigate();
   const [redirectPage , setRedirect] = useState(false)
 
-  const { instance } = useMsal();
-
   //** Shortcut keys
   useHotkeys(keysMap.LOGOUT, () => logoutShortCut());
-  // useHotkeys(keysMap.DASHBOARD_SHORTCUT, () =>  dashboardRedirect() );
-  const CLIENT_ID_NEW =  import.meta.env.VITE_GOOGLE_CLIENT_ID_NEW
+  const CLIENT_ID_NEW =  import.meta.env.VITE_GOOGLE_CLIENT_ID_NEW || "demo-google-client-id"
 
-  const configuration = {
-    auth: {
-      clientId:  import.meta.env.VITE_MICROSOFT_CLIENT_ID,
-      redirectUri:  import.meta.env.VITE_MICROSOFT_REDIRECT_URL,
-    },
-    system: {
-      allowRedirectInIframe: true
-  }
-  };
-
-  const pca = new PublicClientApplication(configuration);
+  const pca = useMemo(() => {
+    return new PublicClientApplication({
+      auth: {
+        clientId: import.meta.env.VITE_MICROSOFT_CLIENT_ID || "demo-msal-client-id",
+        redirectUri: import.meta.env.VITE_MICROSOFT_REDIRECT_URL || window.location.origin
+      },
+      system: {
+        allowRedirectInIframe: true
+      }
+    })
+  }, []);
 
   const UserId = LocalFunction.getLocalValue(globleVariable.userId, true);
   const Token =  LocalFunction.getLocalValue(globleVariable.tokenKey , true )
@@ -142,8 +137,16 @@ const App = () => {
           sessionStorage.removeItem(globleVariable.isCompany);
           localStorage.removeItem(globleVariable.userId);
 
-          signOutClickHandler(instance)
-          googleLogout();
+          try {
+            signOutClickHandler(pca);
+          } catch (e) {
+            console.warn("MSAL signout warning", e);
+          }
+          try {
+            googleLogout();
+          } catch (e) {
+            console.warn("Google logout warning", e);
+          }
           dispatch(handleLogout());
           window.location.href = "/login"
 

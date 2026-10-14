@@ -676,7 +676,10 @@ const Login = () => {
 
               <Form
                 className="auth-login-form mt-2"
-                onSubmit={!block && handleSubmit(onSubmit)}
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  if (!block) handleSubmit(onSubmit)(e);
+                }}
               >
                 <CardTitle
                   tag="h2"

@@ -12,7 +12,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { handleLogout } from '@store/authentication'
 import loginService from './services/loginService';
 import errorCodeConfig from './configs/apiErrorCodeConfig';
-import { config } from 'process';
+import useJwt from './auth/jwt/useJwt';
+
+const config = useJwt.jwtConfig;
 
 const SessionTimeoutChecker = () => {
     const [showPopup, setShowPopup] = useState(false);

@@ -24,8 +24,6 @@ import PrivateRoute from '@components/routes/PrivateRoute'
 // ** Utils
 import { isObjEmpty } from '@utils'
 import ReportsRoutes from './Reports'
-import LedgersRoutes from './Ledgers'
-import DesktopRoute from './Desktop'
 
 
 const getLayout = {
@@ -48,9 +46,7 @@ const Routes = [
   ...AppRoutes,
   ...PagesRoutes,
   ...RecoRoutes,
-  ...ReportsRoutes,
-  // ...LedgersRoutes,
-  // ...DesktopRoute
+  ...ReportsRoutes
 ]
 
 const getRouteMeta = route => {
